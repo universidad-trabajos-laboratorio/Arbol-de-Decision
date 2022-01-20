@@ -1,0 +1,122 @@
+body {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: calibri;
+}
+h1{
+    color:white;
+}
+:root{
+    --size:20px;
+    --borde:#3f1a61;
+}
+
+.arbol{
+    position: relative;
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+}
+
+.rama{
+ text-align: center;
+ position: relative;
+ padding: 20px 5px 0 5px;
+}
+
+.hoja{
+    color:white;
+    font-family: calibri;
+    background-color: #3f1a61;
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 5px;
+    font-size: 20spx;
+    border:solid 1px var(--borde);
+    cursor: pointer;
+}
+.rama::before,
+.rama::after{
+content:'';
+position: absolute;
+top:0;
+right: 50%;
+border-top: solid 1px var(--borde);
+width: 50%;
+height: 20px;
+}
+
+.rama::after{
+    left: 50%;
+    border-left: solid 1px var(--borde);
+}
+.rama:only-child::after,
+.rama:only-child::before{
+    display: none;
+}
+.rama:only-child{
+    padding-top: 0;
+}
+.rama:first-child::before,
+.rama:last-child::after{
+    border:0 none;
+}
+.rama:last-child::before{
+    border-right: solid 1px var(--borde);
+    border-radius: 0 5px 0 0;
+}
+.rama :first-child::after{
+    border-radius: 5px 0 0 0;
+}
+.arbol .arbol::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 50%;
+    border-left: solid 1px var(--borde);
+    width: 20px;
+    height: 20px;
+}
+h3{
+    margin: 0;
+    color:#ffffff;
+}
+span{
+    color:#bd97dc;
+}
+.hoja{
+    transition: all .4s ease;
+    box-shadow: 0px 0px 0px 3px #661d6600;
+}
+
+.hoja:hover + .arbol .hoja ,.hoja:hover
+{
+    background: #7227b8;
+   
+}
+.hoja:hover + .arbol .rama.final > .hoja {
+    background-color: #461246;
+    box-shadow: 0px 0px 0px 3px #661d66;
+    transform: translateY(10px);
+}
+.rama.final > .hoja{
+    background-color: #461246;
+
+}
+
+.arbol:hover::after
+{
+   border:solid 1px orange;
+   
+}
+.hoja:hover + .arbol .rama> .sola {
+    background: #321949;
+}
+.sola:hover{
+    background: #321949;
+
+}
