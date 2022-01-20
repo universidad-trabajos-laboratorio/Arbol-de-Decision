@@ -47,7 +47,7 @@ const tabla2 = {
     ]
 }
 
-const data = tabla1;
+const data = tabla2;
 let fields = data.fields;
 const optionsObject = data.optionsObject;
 const nameFieldObjective = data.nameFieldObjective
