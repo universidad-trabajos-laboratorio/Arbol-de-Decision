@@ -27,7 +27,7 @@ function countValuesField(dataFrame, nameField, nameFielObjective, optionsObject
                 dataResult[option].sum++;
             }
         } else {
-            let opcion = "PASEAR";
+            let opcion = nameFielObjective;
             if (!posibleOptions.includes(opcion)) {
                 posibleOptions.push(opcion);
                 dataResult[opcion] = dataResult[opcion] || {};
@@ -91,7 +91,7 @@ function calculaGanancia(dataFrame, fieldName) {
 
     console.log("ENTROPIA DEL SISTEMA")
     const systemValue = calculateEntropyAttribute(system);
-    console.log("-------------"+field.name+"-------------")
+    console.log("\n-------------"+field.name+"-------------\n")
     const entropyValue = calculateEntropyAttribute(field);
 
     const result = systemValue - entropyValue;
@@ -120,11 +120,11 @@ function maxGain(dataFrame) {
         }
     }
     ganancias[max.name] = max.value;
+    console.log("MAXIMOOOO!!")
+    console.log(max);
     return max;
     
 }
-
-
 
 
 function obtenerNuevasTablas(dataFrame, nameField = "") {
@@ -170,8 +170,8 @@ function obtenerNuevasTablas(dataFrame, nameField = "") {
     }
 
 
-
-
+console.log("TABLASSSSSSSSSSSSS")
+    console.log(tablas)
     return tablas;
 }
 
@@ -183,17 +183,20 @@ function obtenerObjestosPreparacion(tablas) {
         const maxG2 = maxGain(tablas[tabla]);
        
         const tablas2 = obtenerNuevasTablas(tablas[tabla], maxG2.name);
+
         objetos.push({
             opcion: tabla,
             campo: maxG2.name,
             opciones: [...Object.keys(tablas2)]
         })
+
         if (maxG2.value != 0) {
             obtenerObjestosPreparacion(tablas2);
         }
     }
     return objetos;
 }
+
 
 
 
@@ -240,7 +243,8 @@ function crearNodos(opcion) {
 
 
 const nodos = crearNodos('principal');
-
+console.log("FINAAAAAAAAAAL");
+console.log(nodos);
 
 
 
